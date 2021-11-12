@@ -1,0 +1,12 @@
+# Utilitaires
+- [delay](https://github.com/cedriclecocq/rxjs-exemple/tree/main/utility/delay)
+- [delayWhen](https://github.com/cedriclecocq/rxjs-exemple/tree/main/utility/delayWhen)
+- [dematerialize](https://github.com/cedriclecocq/rxjs-exemple/tree/main/utility/dematerialize)
+- [finalize](https://github.com/cedriclecocq/rxjs-exemple/tree/main/utility/finalize)
+- [let](https://github.com/cedriclecocq/rxjs-exemple/tree/main/utility/let)
+- [repeat](https://github.com/cedriclecocq/rxjs-exemple/tree/main/utility/repeat)
+- [tap](https://github.com/cedriclecocq/rxjs-exemple/tree/main/utility/tap)
+- [timeInterval](https://github.com/cedriclecocq/rxjs-exemple/tree/main/utility/timeInterval)
+- [timeout](https://github.com/cedriclecocq/rxjs-exemple/tree/main/utility/timeout)
+- [timeoutWith](https://github.com/cedriclecocq/rxjs-exemple/tree/main/utility/timeoutWith)
+- [toPromise](https://github.com/cedriclecocq/rxjs-exemple/tree/main/utility/toPromise)
