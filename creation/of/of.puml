@@ -1,0 +1,12 @@
+@startuml
+activate of
+of -> of : Creation d'une instance d'Observable
+activate observer
+observer -> of : Subscribe
+loop pour chaque argument
+  of -> observer : Envoi de la valeur
+end
+of -> observer : Envoi de la notification **complete**
+deactivate of
+deactivate observer
+@enduml

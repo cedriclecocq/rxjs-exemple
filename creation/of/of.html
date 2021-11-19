@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>of</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.4.0/rxjs.umd.js"></script>
+    <script>
+        const { of } = rxjs;
+        of(10, 20, 30)
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+                err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+                () => console.log(new Date(Date.now()).toJSON() , 'complete'),
+            );
+
+        of([10, 20, 30])
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+                err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+                () => console.log(new Date(Date.now()).toJSON() , 'complete'),
+            );
+    </script>
+</head>
+<body>
+
+</body>
+</html>
