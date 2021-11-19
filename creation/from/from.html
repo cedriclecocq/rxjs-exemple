@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>of</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.4.0/rxjs.umd.js"></script>
+    <script>
+        const { from } = rxjs;
+        from([10, 20, 30])
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+                err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+                () => console.log(new Date(Date.now()).toJSON() , 'complete'),
+            );
+
+        from("abcdef")
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+                err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+                () => console.log(new Date(Date.now()).toJSON() , 'complete'),
+            );
+
+        from(Promise.resolve(123))
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+                err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+                () => console.log(new Date(Date.now()).toJSON() , 'complete'),
+            );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

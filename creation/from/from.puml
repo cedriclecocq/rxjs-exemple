@@ -1,0 +1,20 @@
+@startuml
+activate from
+from -> from : Creation d'une instance d'Observable
+activate observer
+observer -> from : Subscribe
+alt si tableau ou Iterable
+  loop pour chaque valeur
+    from -> observer : Envoi de la valeur
+  end
+else si promesse
+  alt si resolue
+    from -> observer : Envoi de la valeur
+  else si rejetée
+    from -> observer : Envoi de l'erreur
+  end
+end
+from -> observer : Envoi de la notification **complete**
+deactivate from
+deactivate observer
+@enduml
