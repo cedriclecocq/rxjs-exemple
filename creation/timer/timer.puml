@@ -1,0 +1,19 @@
+@startuml
+activate timer
+timer -> timer : Creation d'une instance d'Observable
+activate observer
+observer -> timer : Subscribe
+timer -> timer : X = 0
+
+alt si valeur d'intervalle fournie
+  loop tout les Y millisecondes
+    timer -> observer : envoi de la valeur X
+    timer -> timer : X = X + 1
+  end
+else sinon
+  timer -> observer : envoi de la valeur X
+  timer -> observer : Envoi de la notification **complete**
+end
+deactivate timer
+deactivate observer
+@enduml

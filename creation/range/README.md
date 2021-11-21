@@ -32,4 +32,7 @@ voir les "**Scheduler**")
   (chaque valeur envoyée toutes les X millisecondes)
 - [generate](https://github.com/cedriclecocq/rxjs-exemple/tree/main/creation/generate) :
   pour générer une séquence de nombre personnalisée.
+- [timer](https://github.com/cedriclecocq/rxjs-exemple/tree/main/creation/timer) :
+  pour envoyer la valeur zéro après un délai ou à partir d'une date, puis potentiellement
+  la valeur incrémentée toutes les X millisecondes.
 - Les "**Scheduler**"

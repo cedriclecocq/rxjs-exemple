@@ -26,3 +26,6 @@ L'observable, généré par cette fonction, peut être utilisé pour déclencher
 pour générer une sequence de nombre en partant d'un nombre spécifique.
 - [generate](https://github.com/cedriclecocq/rxjs-exemple/tree/main/creation/generate) :
 pour générer une séquence de nombre personnalisée.
+- [timer](https://github.com/cedriclecocq/rxjs-exemple/tree/main/creation/timer) :
+  pour envoyer la valeur zéro après un délai ou à partir d'une date, puis potentiellement
+  la valeur incrémentée toutes les X millisecondes.

@@ -40,4 +40,7 @@ voir les "**Scheduler**")
   (chaque valeur envoyée toutes les X millisecondes)
 - [range](https://github.com/cedriclecocq/rxjs-exemple/tree/main/creation/range) :
   pour générer une sequence de nombre en partant d'un nombre spécifique.
+- [timer](https://github.com/cedriclecocq/rxjs-exemple/tree/main/creation/timer) :
+  pour envoyer la valeur zéro après un délai ou à partir d'une date, puis potentiellement
+  la valeur incrémentée toutes les X millisecondes.
 - Les "**Scheduler**"
