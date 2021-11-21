@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NEVER</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.4.0/rxjs.umd.js"></script>
+    <script>
+        const { NEVER, timeoutWith, throwError } = rxjs;
+        NEVER
+            // Si aucune emission durant dix secondes, créer un observable d'erreur
+            .pipe(timeoutWith(10000, throwError('Timeout')))
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+                err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+                () => console.log(new Date(Date.now()).toJSON() , 'complete'),
+            );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

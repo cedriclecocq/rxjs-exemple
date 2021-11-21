@@ -2,28 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>from</title>
+    <title>throwError</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.4.0/rxjs.umd.js"></script>
     <script>
-        const { from } = rxjs;
-        from([10, 20, 30])
+        const { throwError } = rxjs;
+        throwError("Message d'erreur")
             .subscribe(
                 next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
                 err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
                 () => console.log(new Date(Date.now()).toJSON() , 'complete'),
             );
 
-        from("abcdef")
+        throwError(new Error("Message d'erreur"))
             .subscribe(
                 next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
-                err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
-                () => console.log(new Date(Date.now()).toJSON() , 'complete'),
-            );
-
-        from(Promise.resolve(123))
-            .subscribe(
-                next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
-                err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+                err => console.log(new Date(Date.now()).toJSON() , 'error:', err.message),
                 () => console.log(new Date(Date.now()).toJSON() , 'complete'),
             );
     </script>

@@ -1,0 +1,9 @@
+@startuml
+activate empty
+empty -> empty : Creation d'une instance d'Observable
+activate observer
+observer -> empty : Subscribe
+empty -> observer : Envoi de la notification **complete**
+deactivate empty
+deactivate observer
+@enduml

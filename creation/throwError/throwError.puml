@@ -1,0 +1,9 @@
+@startuml
+activate throwError
+throwError -> throwError : Creation d'une instance d'Observable
+activate observer
+observer -> throwError : Subscribe
+throwError -> observer : Envoi de l'erreur
+deactivate throwError
+deactivate observer
+@enduml
