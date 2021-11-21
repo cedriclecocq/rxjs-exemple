@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>range</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.4.0/rxjs.umd.js"></script>
+    <script>
+        const { range } = rxjs;
+        range(5)
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON() , 'next(1):', next),
+                err => console.log(new Date(Date.now()).toJSON() , 'error(1):', err),
+                () => console.log(new Date(Date.now()).toJSON() , 'complete(1)'),
+            );
+
+        range(3, 10)
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON() , 'next(2):', next),
+                err => console.log(new Date(Date.now()).toJSON() , 'error(2):', err),
+                () => console.log(new Date(Date.now()).toJSON() , 'complete(2)'),
+            );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

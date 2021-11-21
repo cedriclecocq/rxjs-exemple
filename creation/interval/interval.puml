@@ -1,0 +1,15 @@
+@startuml
+activate interval
+interval -> interval : Creation d'une instance d'Observable
+activate observer
+observer -> interval : Subscribe
+interval -> interval : N = 0
+loop
+  group wait [après X millisecondes]
+    interval -> observer : envoi de la valeur N
+    interval -> interval : N = N + 1
+  end
+end
+deactivate interval
+deactivate observer
+@enduml

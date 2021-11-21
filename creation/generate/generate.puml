@@ -1,0 +1,19 @@
+@startuml
+activate generate
+generate -> generate : Creation d'une instance d'Observable
+activate observer
+observer -> generate : Subscribe
+generate -> generate : X = valeur de départ
+loop
+  alt Si la fonction condition retourne true
+    generate -> observer : envoi de la valeur X
+    generate -> generate : lance la fonction d'itération pour modifier X
+  else sinon
+    break
+      generate -> observer : Envoi de la notification **complete**
+    end
+  end
+end
+deactivate generate
+deactivate observer
+@enduml

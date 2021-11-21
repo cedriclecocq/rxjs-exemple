@@ -1,0 +1,15 @@
+@startuml
+activate range
+range -> range : Creation d'une instance d'Observable
+activate observer
+observer -> range : Subscribe
+range -> range : X = valeur de départ
+loop tant que N valeurs n'ont pas été envoyées ou si pas de limite
+  range -> observer : envoi de la valeur X
+  range -> range : X = X + 1
+end
+range -> observer : Envoi de la notification **complete**
+
+deactivate range
+deactivate observer
+@enduml
