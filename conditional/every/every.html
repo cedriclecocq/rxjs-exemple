@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>every</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.4.0/rxjs.umd.js"></script>
+    <script>
+        const { of, every } = rxjs;
+        of(10, 20, 30)
+            .pipe(every(val => val <= 20))
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+                err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+                () => console.log(new Date(Date.now()).toJSON() , 'complete'),
+            );
+
+        of(10, 15, 20)
+            .pipe(every(val => val <= 20))
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+                err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+                () => console.log(new Date(Date.now()).toJSON() , 'complete'),
+            );
+
+        of()
+            .pipe(every(val => val <= 20))
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+                err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+                () => console.log(new Date(Date.now()).toJSON() , 'complete'),
+            );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

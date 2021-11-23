@@ -1,0 +1,19 @@
+@startuml
+activate source
+activate defaultIfEmpty
+defaultIfEmpty -> defaultIfEmpty : Creation d'une instance d'Observable
+activate observer
+observer -> defaultIfEmpty : Subscribe
+defaultIfEmpty -> source : subscribe
+loop 0..n
+  source -> defaultIfEmpty : Envoi de la valeur
+  defaultIfEmpty -> observer : Envoi de la valeur
+end
+source -> defaultIfEmpty : Envoi de la notification **complete**
+alt si aucune valeur transmise
+  defaultIfEmpty -> observer : Envoi de la valeur par défaut
+end
+defaultIfEmpty -> observer : Envoi de la notification **complete**
+deactivate defaultIfEmpty
+deactivate observer
+@enduml

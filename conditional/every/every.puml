@@ -1,0 +1,20 @@
+@startuml
+activate source
+activate every
+every -> every : Creation d'une instance d'Observable
+activate observer
+observer -> every : Subscribe
+every -> every : résultat = true
+every -> source : subscribe
+loop 0..n
+  source -> every : Envoi de la valeur
+  alt si la fonction condition retourne false
+    every -> every : résultat = false
+  end
+end
+source -> every : Envoi de la notification **complete**
+every -> observer : Envoi de la valeur résultat
+every -> observer : Envoi de la notification **complete**
+deactivate every
+deactivate observer
+@enduml
