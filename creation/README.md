@@ -1,6 +1,4 @@
 # Création
-- [ajax](https://github.com/cedriclecocq/rxjs-exemple/tree/main/creation/ajax)
-- [create](https://github.com/cedriclecocq/rxjs-exemple/tree/main/creation/create)
 - [defer](https://github.com/cedriclecocq/rxjs-exemple/tree/main/creation/defer)
 - [empty](https://github.com/cedriclecocq/rxjs-exemple/tree/main/creation/empty)
 - [from](https://github.com/cedriclecocq/rxjs-exemple/tree/main/creation/from)
