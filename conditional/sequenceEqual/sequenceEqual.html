@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sequenceEqual</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.4.0/rxjs.umd.js"></script>
+    <script>
+        const {of, sequenceEqual} = rxjs;
+
+        of(1, 2, 3)
+            .pipe(
+                sequenceEqual(of('A', 'B', 'C'))
+            )
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON(), 'A: next:', next),
+                err => console.log(new Date(Date.now()).toJSON(), 'A: error:', err),
+                () => console.log(new Date(Date.now()).toJSON(), 'A: complete')
+            );
+
+        of({x: 1, y:2}, {x:3, y:4})
+            .pipe(
+                sequenceEqual(
+                    of({x: 1, y:2}, {x:3, y:4}),
+                    (a, b) => a.x === b.x && a.y === b.y
+                )
+            )
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON(), 'B: next:', next),
+                err => console.log(new Date(Date.now()).toJSON(), 'B: error:', err),
+                () => console.log(new Date(Date.now()).toJSON(), 'B: complete')
+            );
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iif</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.4.0/rxjs.umd.js"></script>
+    <script>
+        const {of, iif} = rxjs;
+        const a$ = of(1, 2, 3);
+        const b$ = of('A', 'B', 'C');
+
+        // Retourne a$ ou b$ en fonction de la condition
+        iif(
+            () => Math.random() * 2 < 1,
+            a$,
+            b$
+        )
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON(), 'A: next:', next),
+                err => console.log(new Date(Date.now()).toJSON(), 'A: error:', err),
+                () => console.log(new Date(Date.now()).toJSON(), 'A: complete')
+            );
+
+        // Retourne a$ si la condition est vérifiée, sinon intercepte l'erreur
+        iif(
+            () => Math.random() * 2 < 1,
+            a$
+        )
+            .subscribe(
+                next => console.log(new Date(Date.now()).toJSON(), 'B: next:', next),
+                err => console.log(new Date(Date.now()).toJSON(), 'B: error: => nothing to do'),
+                () => console.log(new Date(Date.now()).toJSON(), 'B: complete')
+            );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

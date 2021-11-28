@@ -1,0 +1,40 @@
+@startuml
+activate source
+activate secondObservable
+activate sequenceEqual
+sequenceEqual -> sequenceEqual : Creation d'une instance d'Observable
+activate observer
+observer -> sequenceEqual : Subscribe
+sequenceEqual -> sequenceEqual : résultat = true
+par
+  sequenceEqual -> source : subscribe
+  sequenceEqual -> secondObservable : subscribe
+  alt
+    loop
+      par
+        source -> sequenceEqual : envoi d'une valeur
+        secondObservable -> sequenceEqual : envoi d'une valeur
+      end
+      alt si les deux valeurs sont différentes
+        sequenceEqual -> sequenceEqual : résultat = false
+      end
+    end
+  else
+    par
+      source -> sequenceEqual : Envoi de la notification **complete**
+      secondObservable -> sequenceEqual : envoi d'une valeur
+    end
+    sequenceEqual -> sequenceEqual : résultat = false
+  else
+    par
+      source -> sequenceEqual : Envoi de la notification **complete**
+      secondObservable -> sequenceEqual : Envoi de la notification **complete**
+    end
+  end
+end
+
+sequenceEqual -> observer : Envoi de la valeur résultat
+sequenceEqual -> observer : Envoi de la notification **complete**
+deactivate sequenceEqual
+deactivate observer
+@enduml

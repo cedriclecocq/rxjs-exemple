@@ -1,0 +1,27 @@
+@startuml
+activate observable1
+activate observable2
+activate iif
+iif -> iif : Creation d'une instance d'Observable
+activate observer
+observer -> iif : Subscribe
+alt si la fonction test retourne true
+  iif -> observable1 : subscribe
+  loop
+    observable1 -> iif : valeur
+    iif -> observer : valeur
+  end
+  observable1 -> iif : Envoi de la notification **complete**
+  iif -> observer : Envoi de la notification **complete**
+else sinon
+  iif -> observable2 : subscribe
+  loop
+    observable2 -> iif : valeur
+    iif -> observer : valeur
+  end
+  observable2 -> iif : Envoi de la notification **complete**
+  iif -> observer : Envoi de la notification **complete**
+end
+deactivate iif
+deactivate observer
+@enduml
