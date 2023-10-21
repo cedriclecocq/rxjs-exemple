@@ -1,0 +1,19 @@
+@startuml
+activate sources
+activate concat
+activate observer
+concat -> concat : Creation d'une instance d'Observable
+observer -> concat : Subscribe
+
+loop sur le tableau sources
+  concat -> sources : subscribe au prochain observable
+  loop 1..x
+    sources -> concat : Envoi de la valeur
+  end
+  sources -> concat : Envoi de la notification **complete**
+end
+concat -> observer : Envoi de la notification **complete**
+deactivate sources
+deactivate concat
+deactivate observer
+@enduml
