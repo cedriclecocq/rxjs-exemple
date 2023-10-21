@@ -33,7 +33,7 @@ L'opérateur "**filter**" fonctionne de la manière suivante :
      * sinon envoi d'une erreur à l'observer
 
 
-![first](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/cedriclecocq/rxjs-exemple/main/filtering/first/first.puml)
+![first](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/cedriclecocq/rxjs-exemple/main/filtering/last/last.puml)
 
 ### Usage
 
