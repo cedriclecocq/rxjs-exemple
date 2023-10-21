@@ -3,7 +3,7 @@ L'opérateur "**every**" permet de vérifier si toutes les valeurs envoyées par
 l'observable source passe une condition : si c'est le cas, le booléen **true**
 est envoyé à l'observer, sinon c'est le booléen **false** qui est envoyé.
 
-Pour cela on fournit à l'opérateur une fonction de test qui reçoit une valeur
+Pour cela, on fournit à l'opérateur une fonction de test qui reçoit une valeur
 et doit dire si cette valeur vérifie la condition ou non (en renvoyant respectivement
 true ou false).
 

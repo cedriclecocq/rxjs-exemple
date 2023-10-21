@@ -1,0 +1,18 @@
+@startuml
+activate source
+activate filter
+filter -> filter : Creation d'une instance d'Observable
+activate observer
+observer -> filter : Subscribe
+filter -> source : subscribe
+loop 0..n
+  source -> filter : Envoi de la valeur
+  alt si la valeur satisfait la fonction de test
+    filter -> observer : Envoi de la valeur
+  end
+end
+source -> filter : Envoi de la notification **complete**
+filter -> observer : Envoi de la notification **complete**
+deactivate filter
+deactivate observer
+@enduml
