@@ -19,9 +19,9 @@ La fonction "**from**" fonctionne de la manière suivante :
 1. Creation d'une instance d'Observable.
 2. Si le paramètre est un tableau, itère sur le tableau et retourne chaque valeur séparement à l'observer.
 3. Si le paramètre est un Iterable, itère sur celui-ci et retourne chaque valeur séparement à l'observer.
-4. Si le paramètre est une Promesse, attend qu'elle soit résolue pour retourner la valeur.
-Si la promesse est rejetée, retourne l'erreur à l'observer.
-5. Quand il n'y a plus de valeurs, envoie la notification "**complete**" à l'observer.
+   * Quand il n'y a plus de valeurs, envoie la notification "**complete**" à l'observer.
+4. Si le paramètre est une Promesse, attend qu'elle soit résolue pour retourner la valeur. 
+   * Si la promesse est rejetée, retourne l'erreur à l'observer.
 
 ![from](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/cedriclecocq/rxjs-exemple/main/creation/from/from.puml)
 

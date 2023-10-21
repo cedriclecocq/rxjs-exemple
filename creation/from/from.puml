@@ -7,14 +7,15 @@ alt si tableau ou Iterable
   loop pour chaque valeur
     from -> observer : Envoi de la valeur
   end
+  from -> observer : Envoi de la notification **complete**
 else si promesse
   alt si resolue
     from -> observer : Envoi de la valeur
+    from -> observer : Envoi de la notification **complete**
   else si rejetée
     from -> observer : Envoi de l'erreur
   end
 end
-from -> observer : Envoi de la notification **complete**
 deactivate from
 deactivate observer
 @enduml
