@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>last</title>
+    <script src="https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js"></script>
+    <script>
+		const { of, last } = rxjs;
+		// envoi de la dernière valeur
+		of(1, 2, 3, 4, 5)
+			.pipe(
+				last()
+			)
+			.subscribe(
+				next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+				err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+				() => console.log(new Date(Date.now()).toJSON() , 'complete'),
+			);
+
+		// envoi de la dernière valeur paire
+		of(1, 2, 3, 4, 5)
+			.pipe(
+				last(val => val % 2 === 0)
+			)
+			.subscribe(
+				next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+				err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+				() => console.log(new Date(Date.now()).toJSON() , 'complete'),
+			);
+
+		// envoi de la dernière valeur impaire, sinon 1
+		of(8, 4, 16)
+			.pipe(
+				last(val => val % 2 === 1, 1)
+			)
+			.subscribe(
+				next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+				err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+				() => console.log(new Date(Date.now()).toJSON() , 'complete'),
+			);
+
+		// envoi de la dernière valeur impaire
+		of(8, 4, 16)
+			.pipe(
+				last(val => val % 2 === 1)
+			)
+			.subscribe(
+				next => console.log(new Date(Date.now()).toJSON() , 'next:', next),
+				err => console.log(new Date(Date.now()).toJSON() , 'error:', err),
+				() => console.log(new Date(Date.now()).toJSON() , 'complete'),
+			);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

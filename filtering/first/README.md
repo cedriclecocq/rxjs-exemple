@@ -10,20 +10,25 @@ true ou false).
 ```javascript
 sourceObservable.pipe(
     // retourne la première valeur
-    filter()
+    first()
 );
 
 sourceObservable.pipe(
 	// retourne la première valeur paire
-	filter(val => val % 2 === 0)
+	first(val => val % 2 === 0)
 );
 ```
 
-L'opérateur "**filter**" fonctionne de la manière suivante :
+L'opérateur "**first**" fonctionne de la manière suivante :
 1. Creation d'une instance d'Observable
-2. À la première valeur envoyée par l'observable source (et qui potentiellement satisfait
-   une fonction de test), envoi de la valeur à l'observer
-3. Envoi de la notification "**complete**" à l'observer
+2. Création d'une variable first ayant la valeur false
+3. À la première valeur envoyée par l'observable source (et qui potentiellement satisfait
+   une fonction de test), mise à jour de cette variable à true et envoi de la valeur à l'observer
+4. Lorsque l'observable source envoi sa notification "**complete**"
+    * Si la variable first est false
+        * si une valeur par défaut a été définie, envoi de la valeur par défaut et de la notification
+          "**complete**" à l'observer
+        * sinon envoi d'une erreur à l'observer
 
 
 ![first](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/cedriclecocq/rxjs-exemple/main/filtering/first/first.puml)

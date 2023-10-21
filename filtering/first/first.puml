@@ -4,15 +4,26 @@ activate first
 first -> first : Creation d'une instance d'Observable
 activate observer
 observer -> first : Subscribe
+first -> first : first = false
 first -> source : subscribe
 loop 0..n
   source -> first : Envoi de la valeur
   alt à la première valeur (qui satisfait potentiellement une fonction de test)
+    first -> first : first = true
     first -> observer : Envoi de la valeur
     first -> observer : Envoi de la notification **complete**
   end
 end
 source -> first : Envoi de la notification **complete**
+alt Si first === false
+  alt Si valeur par défaut
+    first -> observer : Envoi de la valeur par défaut
+    first -> observer : Envoi de la notification **complete**
+  else
+    first -> observer : Envoi d'une erreur
+  end
+end
+
 
 deactivate first
 deactivate observer
